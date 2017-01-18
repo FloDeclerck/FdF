@@ -6,17 +6,19 @@
 /*   By: fdeclerc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 13:54:57 by fdeclerc          #+#    #+#             */
-/*   Updated: 2017/01/11 12:37:46 by fdeclerc         ###   ########.fr       */
+/*   Updated: 2017/01/18 15:48:18 by fdeclerc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 
 # define LIBFT_H
+# define BUFF_SIZE 4096
 
 # include <string.h>
 # include <unistd.h>
 # include <stdlib.h>
+# include <fcntl.h>
 
 typedef struct	s_list
 {
@@ -53,7 +55,7 @@ int				ft_strncmp(const char *s1, const char *s2, size_t n);
 char			*ft_strnstr(const char *big, const char *little, size_t len);
 size_t			ft_strlcat(char *dest, const char *src, size_t size);
 void			ft_putchar(char c);
-void			ft_putstr(char const *s);
+void			ft_putstr(char *str);
 void			ft_putchar_fd(char c, int fd);
 void			ft_putstr_fd(char const *s, int fd);
 void			*ft_memalloc(size_t size);
@@ -65,7 +67,7 @@ void			ft_striter(char *s, void (*f)(char*));
 void			ft_striteri(char *s, void (*f)(unsigned int, char *));
 int				ft_strequ(char const *s1, char const *s2);
 int				ft_strnequ(char const *s1, char const *s2, size_t n);
-void			ft_putendl(char const *s);
+void			ft_putendl(char *str);
 void			ft_putendl_fd(char const *s, int fd);
 void			ft_putnbr(int n);
 void			ft_putnbr_fd(int n, int fd);

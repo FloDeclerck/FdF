@@ -6,17 +6,17 @@
 /*   By: fdeclerc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/12 16:52:08 by fdeclerc          #+#    #+#             */
-/*   Updated: 2016/11/12 16:55:44 by fdeclerc         ###   ########.fr       */
+/*   Updated: 2017/01/18 15:47:29 by fdeclerc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putendl(char const *s)
+void	ft_putendl(char *str)
 {
-	if (s)
+	if (str)
 	{
-		ft_putstr(s);
+		ft_putstr(str);
 		ft_putchar('\n');
 	}
 }
