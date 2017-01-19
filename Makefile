@@ -5,48 +5,41 @@
 #                                                     +:+ +:+         +:+      #
 #    By: fdeclerc <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2017/01/11 12:40:36 by fdeclerc          #+#    #+#              #
-#    Updated: 2017/01/18 15:38:58 by fdeclerc         ###   ########.fr        #
+#    Created: 2017/01/19 15:53:43 by fdeclerc          #+#    #+#              #
+#    Updated: 2017/01/19 16:04:44 by fdeclerc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fdf
 
-CC = gcc
+SRC_C = ./fdf.c \
 
-CFLAGS = -Wall -Wextra -Werror
+SRC_O = $(SRC_C:.c=.o)
 
-SRCPATH = ./
+SRC_H = fdf.h
 
-INCPATH = -I
+SRC_A = libft/libft.a
 
-LIBPATH = -L
+FLAG = -Wall -Wextra -Werror
 
-SRCFILES = fdf.c \
-		   ft_read_file.c \
-
-OBJFILES = $(SRC:.c=.o)
-
-LIBFILES =
-
-SRC = $(addprefix $(SRCPATH), $(SRCFILES))
-OBJ = $(addprefix $(OBJPATH), $(OBJFILES))
-LFLAGS = $(LIBPATH) $(LIBFILES)
+LIB = -L./libft -lft -lmlx -framework OpenGL -framework Appkit
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	$(CC) $(LFLAGS) $^ -o $@ -lmlx -framework OpenGL -framework AppKit
-	libft/libft.a get_next_line/get_next_line.c
+$(NAME): $(SRC_O)
+	make -C libft/
+	gcc $(FLAG) -o $(NAME) $^ $(LIB)
 
-$(OBJPATH)%.o: $(SRCPATH)%.c
-	$(CC) $(CFLAGS) $(INCPATH) -c $<
+%.o: %.c
+	gcc $(FLAG) -I libft/includes/ -c $<
 
 clean:
-	rm -rf $(OBJ)
+	make -C libft/ clean
+	rm -f $(NAME)
 
 fclean: clean
-	rm -rf $(NAME)
+	make -C libft/ fclean
+	rm -f $(NAME)
 
 re: fclean all
 
