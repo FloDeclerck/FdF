@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: fdeclerc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/20 11:10:49 by fdeclerc          #+#    #+#             */
-/*   Updated: 2017/01/20 15:09:59 by fdeclerc         ###   ########.fr       */
+/*   Created: 2017/01/10 11:10:49 by fdeclerc          #+#    #+#             */
+/*   Updated: 2017/01/22 15:41:24 by fdeclerc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,8 @@ int				**ft_new_tab(char **str, int *i, int *length)
 	if ((tab_str = ft_strsplit(*str, '\n')) == NULL)
 		return (NULL);
 	free(*str);
-	mod = ft_strlen(tab_str[(*i = 0)]);
+	*i = 0;
+	mod = ft_strlen(tab_str[*i]);
 	while (tab_str[*i])
 		*i += 1;
 	if (!(tab = (int **)malloc(sizeof(tab) * (*i + 1))))

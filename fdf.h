@@ -5,13 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: fdeclerc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/20 10:59:13 by fdeclerc          #+#    #+#             */
-/*   Updated: 2017/01/20 14:23:22 by fdeclerc         ###   ########.fr       */
+/*   Created: 2017/01/10 10:59:13 by fdeclerc          #+#    #+#             */
+/*   Updated: 2017/01/22 15:40:14 by fdeclerc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FDF_H
 # define FDF_H
+# define LEN LENGTH
 
 # include <unistd.h>
 # include <stdlib.h>
@@ -56,10 +57,10 @@ void			ft_init_x(t_coord *e);
 void			ft_init_y(t_coord *e);
 void			ft_z_view(int *x, int *y, int *i, int **value);
 void			ft_value_error(int **value, int length, int width);
-int				***ft_coord_base(int **value, int length, int width, t_coord *e);
+int				***ft_coord_base(int **value, int len, int width, t_coord *e);
 int				ft_init_expose(t_coord *e);
-int				ft_zoom_key(int keycode, t_coord *e);
 int				ft_arrow_key(int keycode, t_coord *e);
+int				ft_arrow_key_end(int keycode, t_coord *e);
 int				ft_mouse_key(int button, int x, int y, t_coord *e);
 
 #endif

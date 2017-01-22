@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: fdeclerc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/19 16:05:31 by fdeclerc          #+#    #+#             */
-/*   Updated: 2017/01/20 15:38:07 by fdeclerc         ###   ########.fr       */
+/*   Created: 2017/01/10 16:05:31 by fdeclerc          #+#    #+#             */
+/*   Updated: 2017/01/22 15:40:39 by fdeclerc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,9 @@ int		ft_init(int **value, int length, int width)
 	e.width = width;
 	e.value = ft_coord_base(e.t_value, e.length, e.width, &e);
 	e.mlx = mlx_init();
-	e.win = mlx_new_window(e.mlx, 2080, 1350, "fdf");
+	e.win = mlx_new_window(e.mlx, 2080, 1350, "Fil de Fer");
 	mlx_expose_hook(e.win, &ft_init_expose, &e);
-	e.indice = mlx_key_hook(e.win, &ft_arrow_key, &e);
+	e.indice = mlx_key_hook(e.win, &ft_arrow_key_end, &e);
 	e.indice = mlx_mouse_hook(e.win, &ft_mouse_key, &e);
 	e.indice = mlx_loop(e.mlx);
 	return (0);
